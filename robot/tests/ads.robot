@@ -1,10 +1,7 @@
 *** Settings ***
 Documentation     Suite de testes para cadastro de anúncios de bicicletas.
-
-Library           Browser    jsextension=${EXECDIR}/robot/resources/mocks/ads.js
-
+Library    Browser    jsextension=${EXECDIR}/robot/resources/mocks/ads.js
 Resource          ../resources/base.resource
-
 Test Setup        Begin Web Test
 Test Teardown     End Web Test
 
