@@ -17,6 +17,7 @@ jobs:
       with:
         node-version: 22
         cache: 'npm'
+
     - name: Install WebApp dependencies
       run: npm install
 
@@ -45,7 +46,7 @@ jobs:
       run: robot -d ./logs
 
     - name: Publish Test Results
-    - uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v4
       if: always ()
       with:
         name: robot-results-chromiun
