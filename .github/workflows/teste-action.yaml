@@ -35,19 +35,21 @@ jobs:
       run: rfbrowser init
 
     - name: Run WebApp
-      run: npm start & 
+      run: |
+        npm start & 
+        sleep 10
       env: 
-          CI: True 
+          CI: true 
 
     - name: Wait for WebApp
       run: npx wait-on http://localhost:3000 --timeout:60000
 
     - name: Run E2E Tests
-      run: robot -d ./logs
+      run: robot -d ./logs ./tests
 
     - name: Publish Test Results
       uses: actions/upload-artifact@v4
       if: always ()
       with:
-        name: robot-results-chromiun
+        name: robot-results-chromium
         path: logs/
